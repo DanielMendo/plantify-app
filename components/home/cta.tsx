@@ -4,12 +4,14 @@ import { StyleSheet, Text, View } from "react-native";
 export default function CTA() {
   return (
     <View style={styles.cta}>
-      <Ionicons
-        name="leaf-outline"
-        size={30}
-        color="#22c55e"
-        style={{ marginBottom: 10 }}
-      />
+      <View style={{ marginBottom: 12 }}>
+        <Ionicons
+          name="leaf-outline"
+          size={30}
+          color="#22c55e"
+          style={{ marginBottom: 10 }}
+        />
+      </View>
 
       <Text style={styles.ctaTitle}>Plantify</Text>
 
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     padding: 22,
     borderRadius: 10,
-    backgroundColor: "#f9fafb",
+    backgroundColor: "#166534",
     borderWidth: 1,
     borderColor: "#ece8e8",
     alignItems: "center",
@@ -35,13 +37,13 @@ const styles = StyleSheet.create({
   ctaTitle: {
     fontSize: 18,
     fontWeight: "800",
-    color: "#166534",
+    color: "#ffffff",
     marginBottom: 6,
   },
 
   ctaText: {
     fontSize: 14,
-    color: "#6b7280",
+    color: "#ffffff",
     textAlign: "center",
     lineHeight: 20,
   },

@@ -3,12 +3,21 @@ import PopularPlantsCarousel from "@/components/home/common-diseases-carousel";
 import CTA from "@/components/home/cta";
 import RecentIdentifications from "@/components/home/recent-identifications";
 import { Ionicons } from "@expo/vector-icons";
-import { useFocusEffect } from "expo-router";
+import { useFocusEffect, useRouter } from "expo-router";
 import { StatusBar, setStatusBarStyle } from "expo-status-bar";
 import { useCallback } from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   useFocusEffect(
     useCallback(() => {
       setStatusBarStyle("dark");
@@ -22,7 +31,7 @@ export default function HomeScreen() {
     >
       <StatusBar style="dark" />
       <Header tab="Inicio" />
-      <View style={styles.options}>
+      <Pressable onPress={() => router.push("/camera")} style={styles.options}>
         <View style={styles.left}>
           <Ionicons name="camera" size={26} color="#22c55e" />
           <View>
@@ -35,7 +44,7 @@ export default function HomeScreen() {
           style={styles.image}
           resizeMode="contain"
         />
-      </View>
+      </Pressable>
 
       <PopularPlantsCarousel />
 

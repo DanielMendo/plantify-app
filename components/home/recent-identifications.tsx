@@ -79,7 +79,7 @@ const RecentIdentifications = () => {
       {!loading && detections.length === 0 && (
         <View style={styles.emptyCard}>
           <View style={styles.emptyIcon}>
-            <Ionicons name="leaf-outline" size={28} color="#22c55e" />
+            <Ionicons name="information-outline" size={28} color="#22c55e" />
           </View>
           <Text style={styles.emptyTitle}>Aún no hay identificaciones</Text>
           <Text style={styles.emptyText}>
@@ -118,7 +118,9 @@ const RecentIdentifications = () => {
                     {translatePlant(item.disease.plant.name)} •{" "}
                     {(item.confidence * 100).toFixed(1)}% confianza
                   </Text>
-                  <Text style={styles.date}>{formatDate(item.detected_at)}</Text>
+                  <Text style={styles.date}>
+                    {formatDate(item.detected_at)}
+                  </Text>
                 </View>
                 <Ionicons name="chevron-forward" size={20} color="#9ca3af" />
               </Pressable>
@@ -198,15 +200,10 @@ const styles = StyleSheet.create({
   },
 
   emptyCard: {
-    backgroundColor: "#ffffff",
-    borderRadius: 20,
+    borderRadius: 10,
     paddingVertical: 24,
     paddingHorizontal: 18,
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOpacity: 0.08,
-    shadowRadius: 6,
-    elevation: 3,
   },
 
   emptyIcon: {

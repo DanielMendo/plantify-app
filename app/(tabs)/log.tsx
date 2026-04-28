@@ -67,6 +67,12 @@ export default function LogScreen() {
       const response = await fetch(
         `https://api.srv1622361.hstgr.cloud/detections/${deviceId}`,
       );
+
+      if (!response.ok) {
+        setDetections([]);
+        return;
+      }
+
       const data: { device_id: string; detections: Detection[] } =
         await response.json();
       setDetections(data.detections);
@@ -91,7 +97,7 @@ export default function LogScreen() {
       {!loading && detections.length === 0 && (
         <View style={styles.emptyCard}>
           <View style={styles.emptyIcon}>
-            <Ionicons name="leaf-outline" size={28} color="#22c55e" />
+            <Ionicons name="information-outline" size={28} color="#22c55e" />
           </View>
           <Text style={styles.emptyTitle}>Aún no hay identificaciones</Text>
           <Text style={styles.emptyText}>
@@ -207,7 +213,6 @@ const styles = StyleSheet.create({
   },
 
   emptyCard: {
-    backgroundColor: "#f9fafb",
     borderRadius: 10,
     paddingVertical: 24,
     paddingHorizontal: 18,
