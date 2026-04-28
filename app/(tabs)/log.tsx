@@ -129,7 +129,9 @@ export default function LogScreen() {
                     {translatePlant(item.disease.plant.name)} •{" "}
                     {(item.confidence * 100).toFixed(1)}% confianza
                   </Text>
-                  <Text style={styles.date}>{formatDate(item.detected_at)}</Text>
+                  <Text style={styles.date}>
+                    {formatDate(item.detected_at)}
+                  </Text>
                 </View>
                 <Ionicons name="chevron-forward" size={20} color="#9ca3af" />
               </Pressable>
@@ -205,15 +207,11 @@ const styles = StyleSheet.create({
   },
 
   emptyCard: {
-    backgroundColor: "#ffffff",
-    borderRadius: 20,
+    backgroundColor: "#f9fafb",
+    borderRadius: 10,
     paddingVertical: 24,
     paddingHorizontal: 18,
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOpacity: 0.08,
-    shadowRadius: 6,
-    elevation: 3,
   },
 
   emptyIcon: {
